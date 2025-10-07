@@ -5,6 +5,7 @@ class SliderSelectionWidget extends StatelessWidget {
   final double value;
   final double minValue;
   final double maxValue;
+  final int divisions;
   final ValueChanged<double> onChanged;
 
   const SliderSelectionWidget({
@@ -13,13 +14,23 @@ class SliderSelectionWidget extends StatelessWidget {
     required this.value,
     required this.minValue,
     required this.maxValue,
-    required this.onChanged,
+    required this.divisions,
+    required this.onChanged, // Función callback que se ejecuta al deslizar
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(
+          color: Colors.black.withOpacity(.1),
+          blurRadius: 8,
+          spreadRadius: 4,
+        )]
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,11 +43,12 @@ class SliderSelectionWidget extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Slider(
-            value: value,
-            onChanged: onChanged,
-            max: maxValue,
-            min: minValue,
-            label: value.toStringAsFixed(0),
+            value: value, // Posición Actual
+            onChanged: onChanged, // Notifica cambios al padre
+            max: maxValue, // Límite superior
+            min: minValue, // Límite inferior
+            divisions: divisions,
+            label: value.toStringAsFixed(0), // Tooltip al deslizar
             activeColor: Theme.of(context).colorScheme.primary,
             inactiveColor: Theme.of(context).colorScheme.onSurface,
           ),
