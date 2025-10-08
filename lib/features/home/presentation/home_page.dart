@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                 child: ElevatedButton(
                   onPressed: () {
                     context.push(
-                      GamePage.route(wordLength: wordLength.toInt(), attemptsCount: attemptsCount.toInt()),
+                      GamePage.route(
+                        wordLength: wordLength.toInt(),
+                        attemptsCount: attemptsCount.toInt(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -76,9 +79,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: Text(
                     'Start Game',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall
+                        ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

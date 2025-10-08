@@ -13,7 +13,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     emit(state.copyWith(
       status: GameStatus.inProgress,
       word: 'TEST',
-      attermptsCount: event.attemptsCount
+      attemptsCount: event.attemptsCount
     ));
   }
 }

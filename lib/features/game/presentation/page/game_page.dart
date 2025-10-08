@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_game/features/game/presentation/widgets/attempts_widget.dart';
 
 class GamePage extends StatelessWidget {
   final int wordLength;
@@ -23,11 +24,15 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Game', style: Theme.of(context).textTheme.headlineMedium,),
+        title: Text(
+          'Game',
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
       ),
       body: Column(
         children: [
-          SizedBox(height: 20,)
+          SizedBox(height: 20),
+          Expanded(child: AttemptsWidget()),
         ],
       ),
     );
