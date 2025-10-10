@@ -84,6 +84,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       attempts: [...attempts, currentAttempt],
       currentAttempt: '',
     ));
+
+    if (word == currentAttempt){
+      emit(state.copyWith(status: GameStatus.win));
+    } else if ((state.attempts?.length ?? 0) == (state.attemptsCount ?? 0)){
+      emit(state.copyWith(status: GameStatus.loss));
+    }
   }   
 
   @override

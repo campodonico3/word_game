@@ -6,6 +6,8 @@ import 'package:word_game/features/game/presentation/bloc/game_event.dart';
 import 'package:word_game/features/game/presentation/bloc/game_state.dart';
 import 'package:word_game/features/game/presentation/widgets/attempts_widget.dart';
 import 'package:word_game/features/game/presentation/widgets/game_keyboard.dart';
+import 'package:word_game/features/game/presentation/widgets/loss_dialog.dart';
+import 'package:word_game/features/game/presentation/widgets/win_dialog.dart';
 
 class GamePage extends StatelessWidget {
   final int wordLength;
@@ -33,7 +35,7 @@ class GamePage extends StatelessWidget {
         ..add(
           StartGameEvent(attemptsCount: attemptsCount, wordLength: wordLength),
         ),
-      child: BlocBuilder<GameBloc, GameState>(
+      child: BlocConsumer<GameBloc, GameState>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -61,6 +63,26 @@ class GamePage extends StatelessWidget {
               ],
             ),
           );
+        },
+        listener: (context, state) {
+          if (state.status == GameStatus.win) {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return WinDialog(word: state.word ?? '');
+              },
+              barrierDismissible: false,
+            );
+          }
+          if (state.status == GameStatus.loss) {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return LossDialog(word: state.word ?? '');
+              },
+              barrierDismissible: false,
+            );
+          }
         },
       ),
     );
