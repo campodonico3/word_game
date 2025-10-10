@@ -13,6 +13,7 @@ class AppTheme {
         onSecondary: AppColors.surface,
         error: AppColors.red,
         onError: AppColors.surface,
+        onSurfaceVariant: AppColors.onSurface,
         surface: AppColors.surface,
         onSurface: AppColors.text,
       ),
