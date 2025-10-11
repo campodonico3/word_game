@@ -33,7 +33,7 @@ class GamePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<GameBloc>()
         ..add(
-          StartGameEvent(attemptsCount: attemptsCount, wordLength: wordLength),
+          StartGameEvent(wordLength: wordLength, attemptsCount: attemptsCount),
         ),
       child: BlocConsumer<GameBloc, GameState>(
         builder: (context, state) {

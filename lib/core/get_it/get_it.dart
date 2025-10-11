@@ -7,6 +7,10 @@ void setup() {
   registerBloc();
 }
 
+void registerRepositories() {
+  // TODO
+}
+
 void registerBloc() {
-  getIt.registerFactory<GameBloc>(() => GameBloc());
+  getIt.registerFactory<GameBloc>(() => GameBloc(gameRepository: getIt()));
 }
