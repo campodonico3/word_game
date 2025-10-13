@@ -5,7 +5,7 @@ abstract class Either<L, R> {
 class Left<L, R> extends Either<L, R> {
   final L value;
 
-  Left({required this.value});
+  Left(this.value);
 
   @override
   T fold<T>(T Function(L l) leftFn, T Function(R r) rightFn) {
@@ -16,7 +16,7 @@ class Left<L, R> extends Either<L, R> {
 class Right<L, R> extends Either<L, R> {
   final R value;
 
-  Right({required this.value});
+  Right(this.value);
 
   @override
   T fold<T>(T Function(L l) leftFn, T Function(R r) rightFn) {

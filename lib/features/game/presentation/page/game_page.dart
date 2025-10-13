@@ -37,6 +37,13 @@ class GamePage extends StatelessWidget {
         ),
       child: BlocConsumer<GameBloc, GameState>(
         builder: (context, state) {
+          if (state.status == GameStatus.loading) {
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
+            );
+          }
           return Scaffold(
             appBar: AppBar(
               title: Text(

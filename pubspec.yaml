@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_bloc:
   go_router:
-  dio:
+  dio: ^5.9.0
   pretty_dio_logger:
   get_it:
 

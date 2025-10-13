@@ -38,9 +38,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
       final newState = state.copyWith(
         status: GameStatus.inProgress,
-        word: 'TEST',
-        // currentAttempt: 'TGSS',
-        // attempts: ['GETH'],
+        word: r.toUpperCase(),
         attemptsCount: event.attemptsCount,
       );
 
